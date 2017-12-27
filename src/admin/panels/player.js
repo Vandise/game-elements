@@ -36,7 +36,9 @@ export default class PlayerPanel extends React.Component
   {
     return (
       <Panel>
+
         <PanelHeading>Player Admin Panel</PanelHeading>
+
         <PanelBlock>
           <Field>
             <Label>Level: {this.state.level}</Label>
@@ -79,7 +81,9 @@ export default class PlayerPanel extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
+
         <PanelHeading>Stats</PanelHeading>
+
         <PanelBlock>
           <Columns>
             <Column>
@@ -96,6 +100,7 @@ export default class PlayerPanel extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
+
         <PanelBlock>
           <Columns isCentered>
             <Column>
@@ -112,6 +117,7 @@ export default class PlayerPanel extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
+
         <PanelBlock>
           <Columns isCentered>
             <Column>
@@ -132,6 +138,114 @@ export default class PlayerPanel extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
+
+        <PanelHeading>Equipment</PanelHeading>
+
+        <PanelBlock>
+          <Columns isCentered>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Neck</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Head</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Back</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+          </Columns>
+        </PanelBlock>
+
+        <PanelBlock>
+          <Columns isCentered>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Weapon</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Body</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Off-hand</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+          </Columns>
+        </PanelBlock>
+
+        <PanelBlock>
+          <Columns isCentered>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Gloves</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Pants</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/3">
+              <Field>
+                <Label>Boots</Label>
+                <Control>
+                  <Select>
+                    <option></option>
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+          </Columns>
+        </PanelBlock>
+
       </Panel>
     );
   }
