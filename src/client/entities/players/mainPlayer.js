@@ -1,3 +1,5 @@
+import Stats from '../../obj/player/stats';
+
 const FRICTION = 0.4;
 const VELOCITY = 2.5;
 const SCALE = 0.75;
@@ -7,7 +9,6 @@ export default class MainPlayer extends me.ComposableSpritePlugin.ComposableSpri
 
   constructor(x, y, settings)
   {
-    console.log(x, y, settings);
     const image = me.loader.getImage('player_male_light');
     super(x, y, {
       image,
@@ -15,6 +16,8 @@ export default class MainPlayer extends me.ComposableSpritePlugin.ComposableSpri
       height: 64,
       name: 'MainPlayer'
     });
+
+    this.stats = new Stats({});
 
     me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
 
@@ -41,6 +44,12 @@ export default class MainPlayer extends me.ComposableSpritePlugin.ComposableSpri
       new me.Rect(0,16,26,16)
     );
     this.body.removeShapeAt(0);
+
+    if (process.env.NODE_ENV == 'development')
+    {
+      window.mainPlayer = this;
+    }
+
   }
 
   update(time)

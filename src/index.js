@@ -1,6 +1,11 @@
 import Game from './client/game';
 import PlayScreen from './client/screens/playScreen';
 
+if (process.env.NODE_ENV == 'development')
+{
+  require('./admin/index');
+}
+
 class Bootstrap
 {
 

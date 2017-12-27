@@ -19,7 +19,6 @@ export default class OpacityEffect extends me.Entity
     if (this.renderable && this.renderable.alpha == 1)
     {
       this.renderable.alpha = 0;
-      console.log(this.renderable.alpha, this.configs);
     }
     if (this.intervalCounter == this.configs.interval_ms)
     {
