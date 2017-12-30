@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <title>My Game</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="debug"></div>
+    <div class="container">
+      <div class="box">
+        <div class="columns">
+          <div class="column is-three-fourths" id="screen"></div>
+          <div class="column is-one-fourth" id="admin-debug"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var r = Math.floor(Math.random() * 20);
+      var script = document.createElement('script');
+      window.onload = (function(){
+        script = document.createElement('script');
+        script.src = '/bundle.js?v='+r;
+        document.head.appendChild(script);        
+      });
+    </script>
+  </body>
+</html>
