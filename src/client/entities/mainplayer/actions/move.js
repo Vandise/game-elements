@@ -14,10 +14,7 @@ export default class
     {
       this.player.body.vel.x = -MOVEMENT_VELOCITY;
       this.player.setCurrentHeading('left');
-      if (!this.player.renderable.isCurrentAnimation('walk_left'))
-      {
-        this.player.renderable.setCurrentAnimation('walk_left');
-      }
+      this.player.triggerAnimation('walk_left');
     }
     else if (me.input.isKeyPressed('right'))
     {

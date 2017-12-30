@@ -1,12 +1,13 @@
 import ActionFactory from './actions/factory';
 import Stats from './stats';
 import Moveable from '../base/moveable';
+import Animateable from '../base/animateable';
 
 const FRICTION = 0.4;
 const VELOCITY = 2.5;
 const SCALE = 0.75;
 
-export default class MainPlayer extends Moveable(me.ComposableSpritePlugin.ComposableSprite)
+export default class MainPlayer extends Moveable(Animateable(me.ComposableSpritePlugin.ComposableSprite))
 {
 
   constructor(x, y, settings)
@@ -19,7 +20,7 @@ export default class MainPlayer extends Moveable(me.ComposableSpritePlugin.Compo
       name: 'MainPlayer'
     });
 
-    this.state = {};
+    this.state = this.state || {};
     this.actions = new ActionFactory(this);
     this.stats = new Stats({});
 

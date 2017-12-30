@@ -1,5 +1,30 @@
 export default [
   {
+    "name": "plate_arms_male",
+    "src": "/resources/gfx/equipment/male/arms/plate_arms_male.png",
+    "type": "image"
+  },
+  {
+    "name": "plate_chest_male",
+    "src": "/resources/gfx/equipment/male/body/plate_chest_male.png",
+    "type": "image"
+  },
+  {
+    "name": "plate_boots_male",
+    "src": "/resources/gfx/equipment/male/boots/plate_boots_male.png",
+    "type": "image"
+  },
+  {
+    "name": "plate_head_male",
+    "src": "/resources/gfx/equipment/male/head/plate_head_male.png",
+    "type": "image"
+  },
+  {
+    "name": "plate_pants_male",
+    "src": "/resources/gfx/equipment/male/pants/plate_pants_male.png",
+    "type": "image"
+  },
+  {
     "name": "player_male_light",
     "src": "/resources/gfx/player/baseSprite/male/player_male_light.png",
     "type": "image"

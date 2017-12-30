@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Container, Panel, PanelHeading, PanelBlock, Columns, Column, Select,
          Field, Label, Control } from 'bloomer';
 import * as playerConfigs from '../../client/configs/player';
+import Items from '../../client/configs/items';
+
 
 const BASE_STAT = playerConfigs.BASE_STAT;
 const DEFAULT_LEVEL = 1;
@@ -30,6 +32,12 @@ export default class PlayerPanel extends React.Component
     this.setState(
       Object.assign({}, this.state, obj)
     );
+  }
+
+  equipItem(itemConfigs)
+  {
+    itemConfigs['name'] = itemConfigs['image'];
+    this.player.addCompositionItem(itemConfigs);
   }
 
   render()
@@ -157,8 +165,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Head</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.male.head[e.target.value]) }>
                     <option></option>
+                    { Object.keys(Items.male.head).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>
@@ -192,8 +205,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Body</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.male.body[e.target.value]) }>
                     <option></option>
+                    { Object.keys(Items.male.body).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>
@@ -217,8 +235,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Gloves</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.male.arms[e.target.value]) }>
                     <option></option>
+                    { Object.keys(Items.male.arms).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>
@@ -227,8 +250,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Pants</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.male.pants[e.target.value]) }>
                     <option></option>
+                    { Object.keys(Items.male.pants).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>
@@ -237,8 +265,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Boots</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.male.boots[e.target.value]) }>
                     <option></option>
+                    { Object.keys(Items.male.boots).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>

@@ -7,6 +7,8 @@ export default (Base = BaseEntity) => class extends Base
   constructor(x, y, settings)
   {
     super(x, y, settings);
+    this.state = this.state || {};
+    this.state['currentHeading'] = null;
   }
 
   setCurrentHeading(heading)

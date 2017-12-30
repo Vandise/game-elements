@@ -12,7 +12,7 @@ class Bootstrap
   constructor()
   {
     // Initialize the video.
-    if (!me.video.init(600, 400, { wrapper : "screen", scale: 2.0 }))
+    if (!me.video.init(600, 400, { wrapper : "screen", scale: 3.0 }))
     {
       alert("Your browser does not support HTML5 canvas.");
       return;
