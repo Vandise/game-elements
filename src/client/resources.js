@@ -15,6 +15,11 @@ export default [
     "type": "image"
   },
   {
+    "name": "plate_gloves_male",
+    "src": "/resources/gfx/equipment/male/gloves/plate_gloves_male.png",
+    "type": "image"
+  },
+  {
     "name": "plate_head_male",
     "src": "/resources/gfx/equipment/male/head/plate_head_male.png",
     "type": "image"

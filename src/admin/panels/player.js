@@ -38,6 +38,7 @@ export default class PlayerPanel extends React.Component
   {
     itemConfigs['name'] = itemConfigs['image'];
     this.player.addCompositionItem(itemConfigs);
+    this.forceUpdate();
   }
 
   render()
@@ -231,9 +232,24 @@ export default class PlayerPanel extends React.Component
 
         <PanelBlock>
           <Columns isCentered>
-            <Column isSize="1/3">
+            <Column isSize="1/4">
               <Field>
                 <Label>Gloves</Label>
+                <Control>
+                  <Select onChange={(e) => this.equipItem(Items.male.gloves[e.target.value]) }>
+                    <option></option>
+                    { Object.keys(Items.male.gloves).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
+                  </Select>
+                </Control>
+              </Field>
+            </Column>
+            <Column isSize="1/4">
+              <Field>
+                <Label>Arms</Label>
                 <Control>
                   <Select onChange={(e) => this.equipItem(Items.male.arms[e.target.value]) }>
                     <option></option>
@@ -246,7 +262,7 @@ export default class PlayerPanel extends React.Component
                 </Control>
               </Field>
             </Column>
-            <Column isSize="1/3">
+            <Column isSize="1/4">
               <Field>
                 <Label>Pants</Label>
                 <Control>
@@ -261,7 +277,7 @@ export default class PlayerPanel extends React.Component
                 </Control>
               </Field>
             </Column>
-            <Column isSize="1/3">
+            <Column isSize="1/4">
               <Field>
                 <Label>Boots</Label>
                 <Control>

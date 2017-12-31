@@ -18,6 +18,22 @@ export default class PlayerStats
     this.mDefense = 0;
 
     this.stats = Object.assign({}, configs.STATS);
+    this.equipmentStats = {
+      baseStats: {
+        agility: 0,
+        strength: 0,
+        intelligence: 0,
+        vitality: 0
+      },
+      stats: {
+        pAttack: 0,
+        mAttack: 0,
+        pDefense: 0,
+        mDefense: 0,
+        maxHP: 0,
+        maxMP: 0
+      }
+    };
 
     Object.keys(settings).forEach((k) => {
       if (self.hasOwnProperty(k))
@@ -40,7 +56,24 @@ export default class PlayerStats
     this.calculateMDefense();
   }
 
-  // Sqrt( ( level * base_stat * 1.8 ) * (base_stat / 1.4) )
+  equipItem(item)
+  {
+    console.log('equipping item', item);
+    if (item.stats)
+    {
+      Object.keys(item.stats).forEach((stat) => {
+        this.equipmentStats.stats[stat] += item.stats[stat];
+      });
+    }
+    if (item.baseStats)
+    {
+      Object.keys(item.baseStats).forEach((stat) => {
+        this.equipmentStats.baseStats[stat] += item.baseStats[stat];
+      });
+    }
+    this.calculateBaseStats();
+  }
+
   calculateBaseStats()
   {
     this.stats = Object.assign({}, configs.STATS);
@@ -55,7 +88,7 @@ export default class PlayerStats
     Object.keys(this.stats).forEach((stat) => {
       this.stats[stat] = Math.round(Math.sqrt(
         ((this.level * this.stats[stat] * 1.8) * ( this.stats[stat] / 1.3 ))
-      ));
+      )) + this.equipmentStats.baseStats[stat];
     });
     this.calculateMaxHP();
     this.calculateMaxMP();
@@ -110,42 +143,42 @@ export default class PlayerStats
   {
     this.pDefense = Math.round(Math.sqrt(
         ((this.level * ( (this.stats.strength * 0.75) + this.stats.agility) * 0.9)) * (this.stats.agility * 0.15)
-    ));
+    )) + this.equipmentStats.stats.pDefense;
   }
 
   calculateMDefense()
   {
     this.mDefense = Math.round(Math.sqrt(
         ((this.level * ( (this.stats.intelligence * 0.75) + this.stats.agility) * 0.9)) * (this.stats.agility * 0.15)
-    ));
+    )) + this.equipmentStats.stats.mDefense;
   }
 
   calculateMAttack()
   {
     this.mAttack = Math.round(Math.sqrt(
         ((this.level * (this.stats.intelligence + this.stats.agility) * 0.9)) * (this.stats.intelligence * 0.15)
-    ));
+    )) + this.equipmentStats.stats.mAttack;
   }
 
   calculatePAttack()
   {
     this.pAttack = Math.round(Math.sqrt(
         ((this.level * (this.stats.strength + this.stats.agility) * 0.9)) * (this.stats.strength * 0.15)
-    ));
+    )) + this.equipmentStats.stats.pAttack;
   }
 
   calculateMaxHP()
   {
     this.maxHP = Math.round(Math.sqrt(
         ((this.level * this.stats.vitality * 0.8) * ( this.stats.vitality / 1.2 )) + this.stats.vitality
-    ) + (this.stats.vitality / 4.5 ));
+    ) + (this.stats.vitality / 4.5 )) + this.equipmentStats.stats.maxHP;
   }
 
   calculateMaxMP()
   {
     this.maxMP = Math.round(Math.sqrt(
         ((this.level * this.stats.intelligence * 0.9) * ( this.stats.intelligence / 1.2 ))
-    ) + this.stats.intelligence);
+    ) + this.stats.intelligence) + this.equipmentStats.stats.maxMP;
   }
 
 }

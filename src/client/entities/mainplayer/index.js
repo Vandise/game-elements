@@ -45,6 +45,16 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
 
   }
 
+  addCompositionItem(item)
+  {
+    super.addCompositionItem(item);
+    console.log('overriden', item);
+    if (this.stats)
+    {
+      this.stats.equipItem(item);
+    }
+  }
+
   update(time)
   {
     if (this.aMoveKeyIsPressed())
