@@ -16,6 +16,7 @@ export default class
       let anim = ANIMATIONS[k];
       this.player.renderable.addAnimation(k, anim.frames, anim.speed);
     });
+    this.player.state['equipmentSlots'] = {};
   }
 
 }

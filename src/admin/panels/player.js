@@ -19,7 +19,7 @@ export default class PlayerPanel extends React.Component
       level: DEFAULT_LEVEL,
       boon: '',
       bane: '',
-      stats: Object.assign({}, playerConfigs.STATS)
+      stats: Object.assign(Object.create(Object.getPrototypeOf(playerConfigs.STATS)), playerConfigs.STATS)
     };
   }
 
@@ -34,10 +34,17 @@ export default class PlayerPanel extends React.Component
     );
   }
 
-  equipItem(itemConfigs)
+  equipItem(itemConfigs, slot)
   {
-    itemConfigs['name'] = itemConfigs['image'];
-    this.player.addCompositionItem(itemConfigs);
+    if (itemConfigs)
+    {
+      itemConfigs['name'] = itemConfigs['image'];
+      this.player.addCompositionItem(itemConfigs);
+    }
+    else
+    {
+      this.player.removeCompositionItem(slot);
+    }
     this.forceUpdate();
   }
 
@@ -166,7 +173,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Head</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.head[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.head[e.target.value], 'head') }>
                     <option></option>
                     { Object.keys(Items.male.head).map((k) => {
                       return(
@@ -206,7 +213,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Body</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.body[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.body[e.target.value], 'body') }>
                     <option></option>
                     { Object.keys(Items.male.body).map((k) => {
                       return(
@@ -236,7 +243,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Gloves</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.gloves[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.gloves[e.target.value], 'gloves') }>
                     <option></option>
                     { Object.keys(Items.male.gloves).map((k) => {
                       return(
@@ -251,7 +258,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Arms</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.arms[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.arms[e.target.value], 'arms') }>
                     <option></option>
                     { Object.keys(Items.male.arms).map((k) => {
                       return(
@@ -266,7 +273,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Pants</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.pants[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.pants[e.target.value], 'pants') }>
                     <option></option>
                     { Object.keys(Items.male.pants).map((k) => {
                       return(
@@ -281,7 +288,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Boots</Label>
                 <Control>
-                  <Select onChange={(e) => this.equipItem(Items.male.boots[e.target.value]) }>
+                  <Select onChange={(e) => this.equipItem(Items.male.boots[e.target.value], 'boots') }>
                     <option></option>
                     { Object.keys(Items.male.boots).map((k) => {
                       return(

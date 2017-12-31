@@ -48,11 +48,25 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
   addCompositionItem(item)
   {
     super.addCompositionItem(item);
-    console.log('overriden', item);
     if (this.stats)
     {
       this.stats.equipItem(item);
+      this.state.equipmentSlots[item.slot] = item;
     }
+  }
+
+  removeCompositionItem(slot)
+  {
+    const itemName = (this.state.equipmentSlots[slot])['name'];
+    this.state.equipmentSlots[slot] = null;
+    super.removeCompositionItem(itemName);
+    this.stats.resetEquipmentStats();
+    Object.keys(this.state.equipmentSlots).forEach((k) => {
+      if (this.state.equipmentSlots[k] != null)
+      {
+        this.stats.equipItem(this.state.equipmentSlots[k]);
+      }
+    });
   }
 
   update(time)

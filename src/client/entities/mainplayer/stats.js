@@ -1,5 +1,22 @@
 import * as configs from '../../configs/player';
 
+const INITIAL_EQUIPMENT_STATS = {
+  baseStats: {
+    agility: 0,
+    strength: 0,
+    intelligence: 0,
+    vitality: 0
+  },
+  stats: {
+    pAttack: 0,
+    mAttack: 0,
+    pDefense: 0,
+    mDefense: 0,
+    maxHP: 0,
+    maxMP: 0
+  }
+};
+
 export default class PlayerStats
 {
 
@@ -17,7 +34,7 @@ export default class PlayerStats
     this.pDefense = 0;
     this.mDefense = 0;
 
-    this.stats = Object.assign({}, configs.STATS);
+    this.stats = Object.assign(Object.create(Object.getPrototypeOf(configs.STATS)), configs.STATS);
     this.equipmentStats = {
       baseStats: {
         agility: 0,
@@ -56,9 +73,29 @@ export default class PlayerStats
     this.calculateMDefense();
   }
 
+  resetEquipmentStats()
+  {
+    this.equipmentStats = {
+      baseStats: {
+        agility: 0,
+        strength: 0,
+        intelligence: 0,
+        vitality: 0
+      },
+      stats: {
+        pAttack: 0,
+        mAttack: 0,
+        pDefense: 0,
+        mDefense: 0,
+        maxHP: 0,
+        maxMP: 0
+      }
+    };
+    this.calculateBaseStats();
+  }
+
   equipItem(item)
   {
-    console.log('equipping item', item);
     if (item.stats)
     {
       Object.keys(item.stats).forEach((stat) => {
