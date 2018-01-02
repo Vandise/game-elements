@@ -4,6 +4,8 @@ const animations = {
   stand_up: ANIMATIONS['stand_down']
 };
 
+const flipX = ['walk_up', 'stand_up'];
+
 export default {
   tattered_cape: {
     image: 'tattercape_black',
@@ -16,7 +18,8 @@ export default {
     baseStats: {
       vitality: 15
     },
-    animations
+    animations,
+    flipX
   },
   black_cape: {
     image: 'cape_black',
@@ -29,6 +32,7 @@ export default {
     baseStats: {
       vitality: 15
     },
-    animations
+    animations,
+    flipX
   }
 };
