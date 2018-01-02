@@ -4,6 +4,7 @@ import MaleBoots from './boots/male';
 import MaleHead from './head/male';
 import MalePants from './pants/male';
 import MaleGloves from './gloves/male';
+import UnisexBack from './back/unisex';
 
 export default {
   male: {
@@ -13,5 +14,8 @@ export default {
     boots: MaleBoots,
     head: MaleHead,
     pants: MalePants
+  },
+  unisex: {
+    back: UnisexBack
   }
 }

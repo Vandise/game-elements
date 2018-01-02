@@ -188,8 +188,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Back</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.unisex.back[e.target.value], 'back') }>
                     <option></option>
+                    { Object.keys(Items.unisex.back).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>

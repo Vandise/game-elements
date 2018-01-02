@@ -30,6 +30,21 @@ export default [
     "type": "image"
   },
   {
+    "name": "cape_black",
+    "src": "/resources/gfx/equipment/unisex/back/cape_black.png",
+    "type": "image"
+  },
+  {
+    "name": "tattercape_black",
+    "src": "/resources/gfx/equipment/unisex/back/tattercape_black.png",
+    "type": "image"
+  },
+  {
+    "name": "female_light",
+    "src": "/resources/gfx/player/baseSprite/female/female_light.png",
+    "type": "image"
+  },
+  {
     "name": "player_male_light",
     "src": "/resources/gfx/player/baseSprite/male/player_male_light.png",
     "type": "image"

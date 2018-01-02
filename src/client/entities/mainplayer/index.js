@@ -71,17 +71,19 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
 
   update(time)
   {
-    if (this.aMoveKeyIsPressed())
-    {
-      this.actions.create('move').execute();
-    }
-    else
-    {
-      this.actions.create('idle').execute();
-    }
- 
-    this.body.update(time);
-    return (this._super(me.Entity, 'update', [time]) || (this.body.vel.x !== 0 || this.body.vel.y !== 0) );
+    return this.actions.create('sortComposition').execute().then(() => {
+      if (this.aMoveKeyIsPressed())
+      {
+        this.actions.create('move').execute();
+      }
+      else
+      {
+        this.actions.create('idle').execute();
+      }
+   
+      this.body.update(time);
+      return (this._super(me.Entity, 'update', [time]) || (this.body.vel.x !== 0 || this.body.vel.y !== 0) );
+    });
   }
 
 }
