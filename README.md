@@ -12,6 +12,8 @@ Requires:
 ## What is this repository?
 This project demonstrates various RPG elements utilizing MelonJS in a plugin-based architecture. Many aspects are being developed: scripted scenes, items, equipment, animations, battles, NPC's, environment effects, and much more.
 
+<iframe src="https://giphy.com/embed/3o7526MveezG4X1PBm" width="580" height="290" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 ## How this repository is set up
 
 This repository is configured to automate some processes with developing a game with MelonJS and ES6. The only additional aspects that need to be completed manually is utilizing some ES6 libraries provided via my Git repositories (see requirements above). These can be extracted and compiled in `lib/ext`.

@@ -82,7 +82,7 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
       }
    
       this.body.update(time);
-      return (this._super(me.Entity, 'update', [time]) || (this.body.vel.x !== 0 || this.body.vel.y !== 0) );
+      return super.update(time);
     });
   }
 
