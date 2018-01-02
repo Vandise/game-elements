@@ -1,5 +1,5 @@
 import { DEFAULT_HEADING } from '../../shared/constants';
-import { ANIMATIONS } from '../settings';
+import { ANIMATIONS, BATTLE_ANIMATIONS } from '../settings';
 
 export default class
 {
@@ -14,6 +14,10 @@ export default class
     this.player.setCurrentHeading(DEFAULT_HEADING);
     Object.keys(ANIMATIONS).forEach((k) => {
       let anim = ANIMATIONS[k];
+      this.player.renderable.addAnimation(k, anim.frames, anim.speed);
+    });
+    Object.keys(BATTLE_ANIMATIONS).forEach((k) => {
+      let anim = BATTLE_ANIMATIONS[k];
       this.player.renderable.addAnimation(k, anim.frames, anim.speed);
     });
     this.player.state['equipmentSlots'] = {};

@@ -19,6 +19,12 @@ export const STATS = {
 //  when heading in the "down" direction.
 //
 export const PLAYER_COMPOSITION_DISPLAY_PRIORITIES = {
+  weapon: {
+    compositionKey: null,
+    priority: {
+      all: 0.4
+    }
+  },
   player: {
     compositionKey: null,
     priority: {

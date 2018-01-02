@@ -82,7 +82,7 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
       }
       else
       {
-        this.actions.create('idle').execute();
+        //this.actions.create('idle').execute();
       }
    
       this.body.update(time);

@@ -6,7 +6,9 @@ import MalePants from './pants/male';
 import MaleGloves from './gloves/male';
 import UnisexBack from './back/unisex';
 
-export default {
+import Swords from './swords/male';
+
+const items = {
   male: {
     gloves: MaleGloves,
     arms: MaleArms,
@@ -17,5 +19,12 @@ export default {
   },
   unisex: {
     back: UnisexBack
-  }
+  },
+  weapons: {
+    swords: Swords
+  },
 }
+
+window.gameItems = items;
+
+export default items;

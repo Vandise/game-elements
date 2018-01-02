@@ -1,5 +1,10 @@
 export default [
   {
+    "name": "longsword_male",
+    "src": "/resources/gfx/battle/sword/longsword_male.png",
+    "type": "image"
+  },
+  {
     "name": "plate_arms_male",
     "src": "/resources/gfx/equipment/male/arms/plate_arms_male.png",
     "type": "image"
