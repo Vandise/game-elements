@@ -141,11 +141,11 @@ export default class
     this.currentAnimation = this.player.renderable.current.name;
   }
 
-  execute()
+  execute(force = false)
   {
     return new Promise((resolve, reject) => {
       // reorder the sprite compostion
-      if(!this.player.renderable.isCurrentAnimation(this.currentAnimation))
+      if(!this.player.renderable.isCurrentAnimation(this.currentAnimation) || force)
       {
         const cp = new CompositionPriorityHeap( this.player.currentHeading() );
   

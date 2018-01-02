@@ -48,6 +48,10 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
   addCompositionItem(item)
   {
     super.addCompositionItem(item);
+    if (this.actions)
+    {
+      this.actions.create('sortComposition').execute(true);
+    }
     if (this.stats)
     {
       this.stats.equipItem(item);
