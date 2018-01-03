@@ -14,7 +14,7 @@ export const ANIMATION_CONFIGS = {
 };
 
 export const BATTLE_ANIM = {
-  attack_up: { frameStart: 156, frames: 6, speed: 100 }
+  attack_up: { frameStart: 156, frames: 6, speed: MOVEMENT_FRAME_SPEED }
 };
 
 MOVEMENT_DIRECTIONS.forEach((direction) => {
