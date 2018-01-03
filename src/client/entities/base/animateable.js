@@ -13,11 +13,14 @@ export default (Base = BaseEntity) => class extends Base
     this.state['animations'] = {};
   }
 
-  triggerAnimation(animationName, returnFirstFrame = true)
+  triggerAnimation(animationName, returnFirstFrame = true, cb = false)
   {
-    const cb = (() => {
-      return returnFirstFrame;        
-    }).bind(this);
+    if (!cb)
+    {
+      cb = (() => {
+        return returnFirstFrame;        
+      }).bind(this);
+    }
 
     if (!this.renderable.isCurrentAnimation(animationName))
     {
