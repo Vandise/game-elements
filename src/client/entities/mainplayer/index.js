@@ -20,29 +20,33 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
       name: 'MainPlayer'
     });
 
+    this.renderable.animationspeed = 150;
+
     this.state = this.state || {};
+    this.state['debugAnimations'] = false;
+
     this.actions = new ActionFactory(this);
     this.stats = new Stats({});
 
-    this.actions.create('initialize').execute();
+    this.actions.create('initialize').execute().then(() => {
+      me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
+  
+      this.renderable.scale(SCALE, SCALE);
+      this.body.setVelocity(VELOCITY, VELOCITY);
+      this.body.setFriction(FRICTION, FRICTION);
+  
+      this.renderable.anchorPoint = new me.Vector2d(0.5,0.8);
+      this.body.addShape(
+        new me.Rect(0,16,26,16)
+      );
+      this.body.removeShapeAt(0);
+  
+      if (process.env.NODE_ENV == 'development')
+      {
+        window.mainPlayer = this;
+      }
 
-    me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
-
-    this.renderable.scale(SCALE, SCALE);
-    this.body.setVelocity(VELOCITY, VELOCITY);
-    this.body.setFriction(FRICTION, FRICTION);
-
-    this.renderable.anchorPoint = new me.Vector2d(0.5,0.8);
-    this.body.addShape(
-      new me.Rect(0,16,26,16)
-    );
-    this.body.removeShapeAt(0);
-
-    if (process.env.NODE_ENV == 'development')
-    {
-      window.mainPlayer = this;
-    }
-
+    });
   }
 
   addCompositionItem(item)
@@ -51,6 +55,7 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
     if (this.actions)
     {
       this.actions.create('sortComposition').execute(true);
+      this.actions.create('idle').execute();
     }
     if (this.stats)
     {
@@ -64,6 +69,11 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
     const itemName = (this.state.equipmentSlots[slot])['name'];
     this.state.equipmentSlots[slot] = null;
     super.removeCompositionItem(itemName);
+    if (this.actions)
+    {
+      this.actions.create('sortComposition').execute(true);
+      this.actions.create('idle').execute();
+    }
     this.stats.resetEquipmentStats();
     Object.keys(this.state.equipmentSlots).forEach((k) => {
       if (this.state.equipmentSlots[k] != null)
@@ -82,7 +92,12 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
       }
       else
       {
-        //this.actions.create('idle').execute();
+        this.actions.create('userInput').execute().then(() => {
+          if (!this.state.animations.isAnimating)
+          {
+            this.actions.create('idle').execute();
+          }
+        });
       }
    
       this.body.update(time);

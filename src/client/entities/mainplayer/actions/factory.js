@@ -2,12 +2,14 @@ import move from './move';
 import idle from './idle';
 import initialize from './initialize';
 import sortComposition from './compositionIndex';
+import userInput from './userInput';
 
 const ACTIONS = {
   move,
   initialize,
   idle,
-  sortComposition
+  sortComposition,
+  userInput
 };
 
 export default class

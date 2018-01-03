@@ -10,7 +10,9 @@ export default (Base = BaseEntity) => class extends Base
   {
     super(x, y, settings);
     this.state = this.state || {};
-    this.state['animations'] = {};
+    this.state['animations'] = {
+      isAnimating: false
+    };
   }
 
   triggerAnimation(animationName, returnFirstFrame = true, cb = false)
