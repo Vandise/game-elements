@@ -19,6 +19,7 @@ export default class PlayerPanel extends React.Component
       level: DEFAULT_LEVEL,
       boon: '',
       bane: '',
+      renderState: 'default',
       stats: Object.assign(Object.create(Object.getPrototypeOf(playerConfigs.STATS)), playerConfigs.STATS)
     };
   }
@@ -32,6 +33,14 @@ export default class PlayerPanel extends React.Component
     this.setState(
       Object.assign({}, this.state, obj)
     );
+  }
+
+  setRenderState(value)
+  {
+    this.setState(
+      Object.assign({}, this.state, { renderState: value })
+    );
+    this.player.state.renderState = value;
   }
 
   equipItem(itemConfigs, slot)
@@ -56,12 +65,27 @@ export default class PlayerPanel extends React.Component
         <PanelHeading>Player Admin Panel</PanelHeading>
 
         <PanelBlock>
-          <Field>
-            <Label>Level: {this.state.level}</Label>
-            <Control>
-              <input type="range" min="1" max="80" value={this.state.level} onChange={(e) => this.setPlayerValue('level', e.target.value) } className="slider"/>
-            </Control>
-          </Field>
+          <Columns>
+            <Column>
+              <Field>
+                <Label>Level: {this.state.level}</Label>
+                <Control>
+                  <input type="range" min="1" max="80" value={this.state.level} onChange={(e) => this.setPlayerValue('level', e.target.value) } className="slider"/>
+                </Control>
+              </Field>
+            </Column>
+            <Column>
+              <Field>
+                <Label>Render State</Label>
+                <Control>
+                  <Select value={this.state.renderState} onChange={(e) => this.setRenderState(e.target.value) }>
+                    <option>default</option>
+                    <option>battle</option>
+                  </Select>
+                </Control>
+              </Field>           
+            </Column>
+          </Columns>
         </PanelBlock>
         <PanelBlock>
           <Columns>

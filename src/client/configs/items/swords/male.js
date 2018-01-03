@@ -1,6 +1,6 @@
 import { ANIMATIONS, MOVEMENT_FRAME_SPEED } from '../../../entities/mainplayer/settings'; 
 const animations = {};
-
+const renderStates = ['battle'];
 
 Object.keys(ANIMATIONS).forEach((a) => {
   animations[a] = {
@@ -25,6 +25,7 @@ export default {
     stats: {},
     baseStats: {},
     animations,
-    anchorPoint
+    anchorPoint,
+    renderStates
   }
 };

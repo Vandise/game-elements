@@ -105,4 +105,8 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
     });
   }
 
+  onCollision(response, other) {
+    return true;
+  }
+
 }
