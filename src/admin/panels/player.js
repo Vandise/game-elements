@@ -208,8 +208,13 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Weapon</Label>
                 <Control>
-                  <Select>
+                  <Select onChange={(e) => this.equipItem(Items.weapons.swords[e.target.value], 'weapon') }>
                     <option></option>
+                    { Object.keys(Items.weapons.swords).map((k) => {
+                      return(
+                        <option>{k}</option>
+                      );
+                    }) }
                   </Select>
                 </Control>
               </Field>

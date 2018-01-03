@@ -1,7 +1,11 @@
 import { ANIMATIONS } from '../../../entities/mainplayer/settings'; 
 const animations = {
   walk_up: ANIMATIONS['walk_down'],
-  stand_up: ANIMATIONS['stand_down']
+  stand_up: ANIMATIONS['stand_down'],
+  attack_up: {
+    frames: [143,143,143,143,143,143],
+    speed: 150
+  }
 };
 
 const flipX = ['walk_up', 'stand_up'];
