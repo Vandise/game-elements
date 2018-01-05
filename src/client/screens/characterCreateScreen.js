@@ -12,7 +12,7 @@ class CharacterCreateScreen extends me.ScreenObject
   onResetEvent()
   {
     me.sys.pauseOnBlur = false;
-    me.game.world.addChild(new me.ColorLayer("background", "#000", 0), 0);
+    me.game.world.addChild(new me.ColorLayer("background", "#f1f1f1", 0), 0);
     ReactDOM.render(<CharacterMenu />, el);
   }
 

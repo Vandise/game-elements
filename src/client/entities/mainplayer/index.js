@@ -28,7 +28,7 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
     this.actions = new ActionFactory(this);
     this.stats = new Stats({});
 
-    this.actions.create('initialize').execute().then(() => {
+    this.actions.create('initialize').execute();//.then(() => {
       me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
   
       this.renderable.scale(SCALE, SCALE);
@@ -46,11 +46,12 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
         window.mainPlayer = this;
       }
 
-    });
+    //});
   }
 
   addCompositionItem(item)
   {
+    console.log('add item', item);
     super.addCompositionItem(item);
     if (this.actions)
     {

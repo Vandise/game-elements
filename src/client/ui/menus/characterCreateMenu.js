@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom';
 import { Panel, PanelHeading, PanelBlock, Columns, Column, Select, Field, Label, Control } from 'bloomer';
 import SpriteData from '../../configs/sprites';
 import Game from '../../game';
+import { ANIMATIONS, BATTLE_ANIMATIONS } from '../../entities/mainplayer/settings';
 
 const bodies = SpriteData.bodies.male.concat(SpriteData.bodies.female);
-/*
-const playerX = me.game.world.width / 2;
-const playerY = me.game.world.height / 2;
-*/
+const animations = Object.keys(ANIMATIONS).concat(Object.keys(BATTLE_ANIMATIONS));
 
 export default class extends React.Component
 {
@@ -17,10 +15,14 @@ export default class extends React.Component
   {
     super(props);
     this.state = {
-      body: '',
-      player: null
+      body: 'male_light2',
+      hair: '',
+      currentAnimation: 'walk_down'
     };
-    console.log(Game);
+    this.player = new (Game.references.entities.MainPlayer)(0, 0, {
+      image: this.state.body
+    });
+    me.game.world.addChild(this.player);
   }
 
   setAttribute(attr, value)
@@ -30,21 +32,26 @@ export default class extends React.Component
 
     data = Object.assign({}, this.state, data);
 
-    if (this.state.player != null)
-    {
-      me.game.world.removeChild(this.state.player);
-    }
-
-    const x = me.game.world.width / 2;
-    const y = me.game.world.height / 2;
-
-    data.player = new (Game.references.entities.MainPlayer)(x, y, {
+    me.game.world.removeChild(this.player);
+    this.player = new (Game.references.entities.MainPlayer)(0, 0, {
       image: data.body
     });
-    data.player.state.animations.isAnimating = true;
-    data.player.triggerAnimation( data.currentAnimation || 'walk_down', true );
 
-    me.game.world.addChild(data.player);
+    me.game.world.addChild(this.player);
+
+    if (data.hair)
+    {
+      this.player.addCompositionItem({
+        name: data.hair,
+        image: data.hair,
+        width: 64,
+        height: 64,
+        slot: 'hair',
+      });
+    }
+
+    this.player.state.animations.isAnimating = true;
+    this.player.triggerAnimation( data.currentAnimation || 'walk_down', true );
 
     this.setState(data);
   }
@@ -53,6 +60,7 @@ export default class extends React.Component
   {
     return (
       <Panel>
+
         <PanelHeading>Sprite Customization</PanelHeading>
         <PanelBlock>
           <Columns>
@@ -61,7 +69,7 @@ export default class extends React.Component
                 <Label>Body</Label>
                 <Control>
                   <Select value={this.state.body} onChange={(e) => this.setAttribute('body', e.target.value) }>
-                    <option></option>
+                    <option>default</option>
                     { bodies.map((b) => {
                       return (
                         <option>{b}</option>
@@ -75,9 +83,14 @@ export default class extends React.Component
               <Field>
                 <Label>Hair</Label>
                 <Control>
-                  <Select>
+                  <Select value={this.state.hair} onChange={(e) => this.setAttribute('hair', e.target.value) }>
                     <option>default</option>
-                  </Select>
+                    { SpriteData.hair.male.map((b) => {
+                      return (
+                        <option>{b}</option>
+                      );
+                    }) }
+                  </Select> 
                 </Control>
               </Field>           
             </Column>
@@ -93,6 +106,28 @@ export default class extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
+  
+        <PanelHeading>Preview</PanelHeading>
+        <PanelBlock>
+          <Columns>
+            <Column>
+              <Field>
+                <Label>Animation</Label>
+                <Control>
+                  <Select value={this.state.currentAnimation} onChange={(e) => this.setAttribute('currentAnimation', e.target.value) }>
+                    <option></option>
+                    { animations.map((b) => {
+                      return (
+                        <option>{b}</option>
+                      );
+                    }) }
+                  </Select>                  
+                </Control>
+              </Field>
+            </Column>
+          </Columns>
+        </PanelBlock>
+       
       </Panel>
     );
   }

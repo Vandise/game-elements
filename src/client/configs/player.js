@@ -31,6 +31,12 @@ export const PLAYER_COMPOSITION_DISPLAY_PRIORITIES = {
       all: 0.5
     }
   },
+  hair: {
+    compositionKey: null,
+    priority: {
+      all: 0.51
+    }
+  },
   boots: {
     compositionKey: null,
     priority: {

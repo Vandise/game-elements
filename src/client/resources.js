@@ -150,6 +150,41 @@ export default [
     "type": "image"
   },
   {
+    "name": "male_hair_long",
+    "src": "/resources/gfx/player/hair/male/male_hair_long.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_messy1",
+    "src": "/resources/gfx/player/hair/male/male_hair_messy1.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_page",
+    "src": "/resources/gfx/player/hair/male/male_hair_page.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_parted",
+    "src": "/resources/gfx/player/hair/male/male_hair_parted.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_pixie",
+    "src": "/resources/gfx/player/hair/male/male_hair_pixie.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_plain",
+    "src": "/resources/gfx/player/hair/male/male_hair_plain.png",
+    "type": "image"
+  },
+  {
+    "name": "male_hair_princess",
+    "src": "/resources/gfx/player/hair/male/male_hair_princess.png",
+    "type": "image"
+  },
+  {
     "name": "dev_01",
     "src": "/resources/maps/dev/dev_01.tmx",
     "type": "tmx"
