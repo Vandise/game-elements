@@ -28,6 +28,7 @@ Currently implemented:
 - Some scene concepts (https://github.com/Vandise/melonjs-scenes)
 - Admin panel (press "p" to access it)
 - Stat calculations
+- Sprite customization (body, eyes, hair, etc).
 
 ## License
 MIT
