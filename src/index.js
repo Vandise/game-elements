@@ -1,5 +1,8 @@
 import Game from './client/game';
 import PlayScreen from './client/screens/playScreen';
+import MainMenuScreen from './client/screens/mainMenuScreen';
+import CharacterCreateScreen from './client/screens/characterCreateScreen';
+import * as States from './client/screens/states';
 
 if (process.env.NODE_ENV == 'development')
 {
@@ -43,12 +46,14 @@ class Bootstrap
   loaded()
   {
     me.state.set(me.state.PLAY, new PlayScreen());
+    me.state.set(States.default.CHARACTER_CREATE, new CharacterCreateScreen());
+    me.state.set(States.default.MAIN_MENU, new MainMenuScreen());
 
     Object.keys(Game.references.entities).forEach((name) => {
       me.pool.register(name, Game.references.entities[name]);
     });
 
-    me.state.change(me.state.PLAY);
+    me.state.change(States.default.MAIN_MENU);
   }
 
   static boot()

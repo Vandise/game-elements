@@ -20,6 +20,7 @@ export default class PlayerPanel extends React.Component
       boon: '',
       bane: '',
       renderState: 'default',
+      animationDelay: 150,
       stats: Object.assign(Object.create(Object.getPrototypeOf(playerConfigs.STATS)), playerConfigs.STATS)
     };
   }
@@ -57,6 +58,28 @@ export default class PlayerPanel extends React.Component
     this.forceUpdate();
   }
 
+  setAnimationSpeed(value)
+  {
+    this.setState(Object.assign({}, this.state, { animationDelay: value }));
+    console.info('currently not implemented');
+    /*
+    Object.keys(this.player.renderable.anim).forEach((animation) => {
+      this.player.renderable.anim[animation].frames.forEach((f) => {
+        f.delay = value;
+      });
+    });
+    */
+    /*
+    Object.keys(this.player.renderable.children).forEach((item) => {
+      Object.keys(this.player.renderable.children[item].anim).forEach((animation) => {
+        this.player.renderable.children[item].anim[animation].frames.forEach((f) => {
+          f.delay = value;
+        });        
+      });
+    });
+    */
+  }
+
   render()
   {
     return (
@@ -70,7 +93,7 @@ export default class PlayerPanel extends React.Component
               <Field>
                 <Label>Level: {this.state.level}</Label>
                 <Control>
-                  <input type="range" min="1" max="80" value={this.state.level} onChange={(e) => this.setPlayerValue('level', e.target.value) } className="slider"/>
+                  <input type="range" min="1" max="80" value={this.state.level} onChange={(e) => this.setPlayerValue('level', e.target.value) } />
                 </Control>
               </Field>
             </Column>
@@ -84,6 +107,14 @@ export default class PlayerPanel extends React.Component
                   </Select>
                 </Control>
               </Field>           
+            </Column>
+            <Column>
+              <Field>
+                <Label>Animation Delay</Label>
+                <Control>
+                  <input type="range" min="25" max="250" value={this.state.animationDelay} onChange={(e) => this.setAnimationSpeed(e.target.value) } />
+                </Control>
+              </Field>
             </Column>
           </Columns>
         </PanelBlock>

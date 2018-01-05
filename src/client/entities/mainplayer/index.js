@@ -12,7 +12,7 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
 
   constructor(x, y, settings)
   {
-    const image = me.loader.getImage('player_male_light');
+    const image = me.loader.getImage(settings.image || 'male_light2');
     super(x, y, {
       image,
       width: 64,

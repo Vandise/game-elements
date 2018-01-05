@@ -1,0 +1,1 @@
+export const LARGE_MENU_DIV_ID = 'game-menu-large';

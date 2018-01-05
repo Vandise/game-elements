@@ -45,13 +45,108 @@ export default [
     "type": "image"
   },
   {
+    "name": "female_dark",
+    "src": "/resources/gfx/player/baseSprite/female/female_dark.png",
+    "type": "image"
+  },
+  {
+    "name": "female_dark2",
+    "src": "/resources/gfx/player/baseSprite/female/female_dark2.png",
+    "type": "image"
+  },
+  {
+    "name": "female_darkelf",
+    "src": "/resources/gfx/player/baseSprite/female/female_darkelf.png",
+    "type": "image"
+  },
+  {
+    "name": "female_darkelf2",
+    "src": "/resources/gfx/player/baseSprite/female/female_darkelf2.png",
+    "type": "image"
+  },
+  {
     "name": "female_light",
     "src": "/resources/gfx/player/baseSprite/female/female_light.png",
     "type": "image"
   },
   {
-    "name": "player_male_light",
-    "src": "/resources/gfx/player/baseSprite/male/player_male_light.png",
+    "name": "female_light2",
+    "src": "/resources/gfx/player/baseSprite/female/female_light2.png",
+    "type": "image"
+  },
+  {
+    "name": "female_orc",
+    "src": "/resources/gfx/player/baseSprite/female/female_orc.png",
+    "type": "image"
+  },
+  {
+    "name": "female_red_orc",
+    "src": "/resources/gfx/player/baseSprite/female/female_red_orc.png",
+    "type": "image"
+  },
+  {
+    "name": "female_tanned",
+    "src": "/resources/gfx/player/baseSprite/female/female_tanned.png",
+    "type": "image"
+  },
+  {
+    "name": "female_tanned2",
+    "src": "/resources/gfx/player/baseSprite/female/female_tanned2.png",
+    "type": "image"
+  },
+  {
+    "name": "male_dark",
+    "src": "/resources/gfx/player/baseSprite/male/male_dark.png",
+    "type": "image"
+  },
+  {
+    "name": "male_dark2",
+    "src": "/resources/gfx/player/baseSprite/male/male_dark2.png",
+    "type": "image"
+  },
+  {
+    "name": "male_darkelf",
+    "src": "/resources/gfx/player/baseSprite/male/male_darkelf.png",
+    "type": "image"
+  },
+  {
+    "name": "male_darkelf2",
+    "src": "/resources/gfx/player/baseSprite/male/male_darkelf2.png",
+    "type": "image"
+  },
+  {
+    "name": "male_light",
+    "src": "/resources/gfx/player/baseSprite/male/male_light.png",
+    "type": "image"
+  },
+  {
+    "name": "male_light2",
+    "src": "/resources/gfx/player/baseSprite/male/male_light2.png",
+    "type": "image"
+  },
+  {
+    "name": "male_orc",
+    "src": "/resources/gfx/player/baseSprite/male/male_orc.png",
+    "type": "image"
+  },
+  {
+    "name": "male_red_orc",
+    "src": "/resources/gfx/player/baseSprite/male/male_red_orc.png",
+    "type": "image"
+  },
+  {
+    "name": "male_skeleton",
+    "src": "/resources/gfx/player/baseSprite/male/male_skeleton.png",
+    "type": "image"
+  },
+  {
+    "name": "male_tanned",
+    "src": "/resources/gfx/player/baseSprite/male/male_tanned.png",
+    "type": "image"
+  },
+  {
+    "name": "male_tanned2",
+    "src": "/resources/gfx/player/baseSprite/male/male_tanned2.png",
     "type": "image"
   },
   {
