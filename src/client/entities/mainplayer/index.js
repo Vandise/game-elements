@@ -2,6 +2,7 @@ import ActionFactory from './actions/factory';
 import Stats from './stats';
 import Moveable from '../base/moveable';
 import Animateable from '../base/animateable';
+import Game from '../../game';
 
 const FRICTION = 0.4;
 const VELOCITY = 2.5;
@@ -12,9 +13,10 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
 
   constructor(x, y, settings)
   {
-    const image = me.loader.getImage(settings.image || 'male_light2');
+    const { image, composition } = Game.playerConfig;
+    const loadedImage = me.loader.getImage(image || settings.image || 'male_light2');
     super(x, y, {
-      image,
+      image: loadedImage,
       width: 64,
       height: 64,
       name: 'MainPlayer'
@@ -40,6 +42,10 @@ export default class MainPlayer extends Moveable(Animateable(me.ComposableSprite
         new me.Rect(0,16,26,16)
       );
       this.body.removeShapeAt(0);
+  
+      composition.forEach((c) => {
+        this.addCompositionItem(c);
+      });
   
       if (process.env.NODE_ENV == 'development')
       {

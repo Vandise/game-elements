@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Panel, PanelHeading, PanelBlock, Columns, Column, Select, Field, Label, Control } from 'bloomer';
+import { Panel, PanelHeading, PanelBlock, Columns, Column, Select, Field, Label, Control, Button } from 'bloomer';
 import SpriteData from '../../configs/sprites';
 import Game from '../../game';
 import { ANIMATIONS, BATTLE_ANIMATIONS } from '../../entities/mainplayer/settings';
@@ -28,6 +28,10 @@ export default class extends React.Component
 
   setAttribute(attr, value)
   {
+
+    Game.playerConfig.image = '';
+    Game.playerConfig.composition = [];
+
     let data = {};
     data[attr] = value;
 
@@ -39,27 +43,33 @@ export default class extends React.Component
     });
 
     me.game.world.addChild(this.player);
+    Game.playerConfig.image = data.body;
 
+    let item = {};
     if (data.hair)
     {
-      this.player.addCompositionItem({
+      item = {
         name: data.hair,
         image: data.hair,
         width: 64,
         height: 64,
         slot: 'hair',
-      });
+      };
+      this.player.addCompositionItem(item);
+      Game.playerConfig.composition.push(item);
     }
 
     if (data.eyes)
     {
-      this.player.addCompositionItem({
+      item = {
         name: data.eyes,
         image: data.eyes,
         width: 64,
         height: 64,
         slot: 'eyes',
-      });
+      };
+      this.player.addCompositionItem(item);
+      Game.playerConfig.composition.push(item);
     }
 
     this.player.state.animations.isAnimating = true;
@@ -144,7 +154,11 @@ export default class extends React.Component
             </Column>
           </Columns>
         </PanelBlock>
-       
+
+        <PanelBlock>
+          <Button onClick={ () => me.state.change(me.state.PLAY) }>Go to Dev Area</Button>
+        </PanelBlock>
+
       </Panel>
     );
   }

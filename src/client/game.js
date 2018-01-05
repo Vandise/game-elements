@@ -12,6 +12,10 @@ class Game
     this.instances = {
       entities: {}
     };
+    this.playerConfig = {
+      image: '',
+      composition: []
+    };
   }
 
 }
