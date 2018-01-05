@@ -150,6 +150,51 @@ export default [
     "type": "image"
   },
   {
+    "name": "blue",
+    "src": "/resources/gfx/player/eyes/blue.png",
+    "type": "image"
+  },
+  {
+    "name": "brown",
+    "src": "/resources/gfx/player/eyes/brown.png",
+    "type": "image"
+  },
+  {
+    "name": "casting_eyeglow_skeleton",
+    "src": "/resources/gfx/player/eyes/casting_eyeglow_skeleton.png",
+    "type": "image"
+  },
+  {
+    "name": "gray",
+    "src": "/resources/gfx/player/eyes/gray.png",
+    "type": "image"
+  },
+  {
+    "name": "green",
+    "src": "/resources/gfx/player/eyes/green.png",
+    "type": "image"
+  },
+  {
+    "name": "orange",
+    "src": "/resources/gfx/player/eyes/orange.png",
+    "type": "image"
+  },
+  {
+    "name": "purple",
+    "src": "/resources/gfx/player/eyes/purple.png",
+    "type": "image"
+  },
+  {
+    "name": "red",
+    "src": "/resources/gfx/player/eyes/red.png",
+    "type": "image"
+  },
+  {
+    "name": "yellow",
+    "src": "/resources/gfx/player/eyes/yellow.png",
+    "type": "image"
+  },
+  {
     "name": "male_hair_long",
     "src": "/resources/gfx/player/hair/male/male_hair_long.png",
     "type": "image"

@@ -17,6 +17,7 @@ export default class extends React.Component
     this.state = {
       body: 'male_light2',
       hair: '',
+      eyes: '',
       currentAnimation: 'walk_down'
     };
     this.player = new (Game.references.entities.MainPlayer)(0, 0, {
@@ -47,6 +48,17 @@ export default class extends React.Component
         width: 64,
         height: 64,
         slot: 'hair',
+      });
+    }
+
+    if (data.eyes)
+    {
+      this.player.addCompositionItem({
+        name: data.eyes,
+        image: data.eyes,
+        width: 64,
+        height: 64,
+        slot: 'eyes',
       });
     }
 
@@ -98,9 +110,14 @@ export default class extends React.Component
               <Field>
                 <Label>Eyes</Label>
                 <Control>
-                  <Select>
+                  <Select value={this.state.eyes} onChange={(e) => this.setAttribute('eyes', e.target.value) }>
                     <option>default</option>
-                  </Select>                  
+                    { SpriteData.eyes.map((b) => {
+                      return (
+                        <option>{b}</option>
+                      );
+                    }) }
+                  </Select>                 
                 </Control>
               </Field>
             </Column>
